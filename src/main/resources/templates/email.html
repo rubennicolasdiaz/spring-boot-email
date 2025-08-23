@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Envío de correo de web rubennicolasdiaz.github.io/contacto</title>
+</head>
+<body>
+<p style="color: black; font-size: 16px;">
+    <strong>Nombre:</strong> <span th:text="${name}"></span>
+</p>
+<p style="color: black; font-size: 16px;">
+    <strong>Correo:</strong> <span th:text="${email}"></span>
+</p>
+<p style="color: black; font-size: 16px;">
+    <strong>Asunto:</strong> <span th:text="${subject}"></span>
+</p>
+<p style="color: black; font-size: 16px;">
+    <strong>Mensaje:</strong> <span th:text="${message}"></span>
+</p>
+</body>
+</html>

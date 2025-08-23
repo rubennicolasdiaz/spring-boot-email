@@ -3,10 +3,13 @@ FROM eclipse-temurin:21-jdk-alpine AS build
 
 WORKDIR /app
 
-# Copiar pom.xml y dependencias para caching
+# Copiar pom.xml y mvnw
 COPY pom.xml .
 COPY mvnw .
+RUN chmod +x mvnw          
 COPY .mvn .mvn
+
+# Descargar dependencias
 RUN ./mvnw dependency:go-offline -B
 
 # Copiar el resto del proyecto

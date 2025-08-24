@@ -1,10 +1,12 @@
 package com.rubennicolas.email_server_spring_boot.services.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
+@Slf4j
 public class KeepAliveService {
 
     private static final String RENDER_URL = "https://spring-boot-email.onrender.com/actuator/health";
@@ -15,9 +17,9 @@ public class KeepAliveService {
     public void pingApp() {
         try {
             String response = restTemplate.getForObject(RENDER_URL, String.class);
-            System.out.println("KeepAlive ping OK: " + response);
+            log.info("KeepAlive ping OK: {}", response);
         } catch (Exception e) {
-            System.err.println("KeepAlive ping FAILED: " + e.getMessage());
+            log.error("KeepAlive ping FAILED: {}", e.getMessage());
         }
     }
 }

@@ -3,14 +3,15 @@ package com.rubennicolas.email_server_spring_boot.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-
 import java.util.Properties;
 
 @Configuration
+//@PropertySource("classpath:email.properties")
 public class EmailConfig {
 
     // Variables de Entorno que pasaremos cuando despleguemos la app a un servicio web:

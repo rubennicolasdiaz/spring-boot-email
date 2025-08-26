@@ -4,7 +4,8 @@ import com.rubennicolas.email_server_spring_boot.services.IEmailService;
 import com.rubennicolas.email_server_spring_boot.services.models.EmailDTO;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,14 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EmailServiceImpl implements IEmailService {
 
     private final JavaMailSender javaMailSender;
     private final TemplateEngine templateEngine;
+
+    @Value("${email.username}")
+    private String email;
 
     @Override
     public void sendEmail(EmailDTO emailDTO) {
@@ -25,10 +29,8 @@ public class EmailServiceImpl implements IEmailService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
 
-            String EMAIL_YAHOO = "ruben.nicolasdiaz@yahoo.com";
-
-            helper.setFrom(EMAIL_YAHOO);
-            helper.setTo(EMAIL_YAHOO);
+            helper.setFrom(email);
+            helper.setTo(email);
 
             helper.setSubject(emailDTO.getSubject());
 
@@ -50,5 +52,3 @@ public class EmailServiceImpl implements IEmailService {
         }
     }
 }
-
-

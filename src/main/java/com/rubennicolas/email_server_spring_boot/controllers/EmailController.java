@@ -1,5 +1,6 @@
 package com.rubennicolas.email_server_spring_boot.controllers;
 
+
 import com.rubennicolas.email_server_spring_boot.services.IEmailService;
 import com.rubennicolas.email_server_spring_boot.services.models.EmailDTO;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,6 @@ public class EmailController {
 
         emailService.sendEmail(emailDTO);
 
-       return new ResponseEntity<>("Email enviado satisfactoriamente", HttpStatus.OK);
+        return new ResponseEntity<>("Email enviado satisfactoriamente", HttpStatus.OK);
     }
 }

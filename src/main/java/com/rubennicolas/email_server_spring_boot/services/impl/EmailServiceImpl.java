@@ -43,7 +43,7 @@ public class EmailServiceImpl implements IEmailService {
 
             String contentHtml = templateEngine.process("principal", context);
 
-            helper.setText(emailDTO.getMessage(), contentHtml);
+            helper.setText(contentHtml, true);
 
             javaMailSender.send(mimeMessage);
 

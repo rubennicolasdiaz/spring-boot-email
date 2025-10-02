@@ -41,13 +41,13 @@ class EmailServiceImplTest {
         MimeMessage mimeMessage = mock(MimeMessage.class);
 
         when(mailSender.createMimeMessage()).thenReturn(mimeMessage);
-        when(templateEngine.process(eq("email"), any(Context.class))).thenReturn("<html>Contenido</html>");
+        when(templateEngine.process(eq("principal"), any(Context.class))).thenReturn("<html>Contenido</html>");
 
         // when
         emailService.sendEmail(dto);
 
         // then
-        verify(templateEngine, times(1)).process(eq("email"), any(Context.class));
+        verify(templateEngine, times(1)).process(eq("principal"), any(Context.class));
         verify(mailSender, times(1)).send(mimeMessage);
     }
 }

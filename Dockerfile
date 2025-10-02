@@ -1,6 +1,5 @@
 # Etapa 1: build
-FROM eclipse-temurin:21-jdk-alpine AS build
-
+FROM eclipse-temurin:21.0.2_13-jdk-alpine AS build
 WORKDIR /app
 
 # Copiar pom.xml y mvnw

@@ -41,7 +41,7 @@ public class EmailServiceImpl implements IEmailService {
             context.setVariable("subject", emailDTO.getSubject());
             context.setVariable("message", emailDTO.getMessage());
 
-            String contentHtml = templateEngine.process("email", context);
+            String contentHtml = templateEngine.process("principal", context);
 
             helper.setText(emailDTO.getMessage(), contentHtml);
 

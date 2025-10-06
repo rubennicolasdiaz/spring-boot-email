@@ -5,7 +5,10 @@ import com.rubennicolas.email_server_spring_boot.services.models.EmailDTO;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,7 @@ import org.thymeleaf.context.Context;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class EmailServiceImpl implements IEmailService {
 
     private final JavaMailSender javaMailSender;
@@ -42,12 +46,24 @@ public class EmailServiceImpl implements IEmailService {
             context.setVariable("message", emailDTO.getMessage());
 
             String contentHtml = templateEngine.process("principal", context);
-
             helper.setText(contentHtml, true);
+
+            log.debug("Intentando enviar correo a {} con asunto '{}'", email, emailDTO.getSubject());
             javaMailSender.send(mimeMessage);
 
+            log.info("Correo enviado exitosamente a {}", email);
+
+        } catch (MailSendException e) {
+            log.error("Error de conexión con el servidor SMTP: {}", e.getMessage(), e);
+            throw new RuntimeException("Error al conectar con el servidor SMTP", e);
+
         } catch (MessagingException e) {
-            throw new RuntimeException("Error al enviar el email: " + e.getMessage());
+            log.error("Error de formato o construcción del mensaje: {}", e.getMessage(), e);
+            throw new RuntimeException("Error al construir el correo", e);
+
+        } catch (Exception e) {
+            log.error("Error inesperado al enviar correo: {}", e.getMessage(), e);
+            throw new RuntimeException("Error general al enviar correo", e);
         }
     }
 }

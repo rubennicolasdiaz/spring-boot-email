@@ -15,10 +15,10 @@ import java.util.Properties;
 public class EmailConfig {
 
     // Variables de Entorno que pasaremos cuando despleguemos la app a un servicio web:
-    @Value("${email.username}")
+    @Value("${username}")
     private String email;
 
-    @Value("${email.password}")
+    @Value("${password}")
     private String password;
 
     private Properties getMailProperties(){

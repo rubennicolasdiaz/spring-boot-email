@@ -23,7 +23,7 @@ public class EmailServiceImpl implements IEmailService {
     private final JavaMailSender javaMailSender;
     private final TemplateEngine templateEngine;
 
-    @Value("${email.username}")
+    @Value("${username}")
     private String email;
 
     @Override

@@ -81,14 +81,13 @@ src/
 
 ## 🧠 Funcionamiento
 
-1. El usuario envía un formulario desde la web (`/contacto.html`).
+1. El usuario envía un formulario desde la web (`https://www.rubennicolasdiaz.me/contacto.html`).
 2. La aplicación recibe una **petición HTTP POST** en el endpoint `/send-email`.
 3. Los datos se encapsulan en un objeto `EmailDTO` con los campos:
    ```json
    { "name": "Nombre", "email": "email@mail.com", "subject": "Asunto", "message": "Mensaje" }
-El servicio envía un correo a la cuenta configurada mediante SMTP (Yahoo).
-
-Endpoint de salud /health devuelve "OK" (monitorización).
+   ```
+4. El servicio envía un correo a la cuenta configurada mediante SMTP (Yahoo).
 
 ## 🔐 Seguridad
 

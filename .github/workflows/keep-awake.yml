@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Ping /health
         run: |
-          curl -s https://spring-boot-email.onrender.com/health
+          curl -s https://spring-boot-email-rubennicolas.fly.dev/health

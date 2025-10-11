@@ -11,7 +11,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import java.util.Properties;
 
 @Configuration
-//@PropertySource("classpath:email.properties")
 public class EmailConfig {
 
     // Variables de Entorno que pasaremos cuando despleguemos la app a un servicio web:

@@ -30,7 +30,7 @@ class EmailControllerIT {
     private IEmailService emailService;
 
     @Test
-    void sendEmailEndpoint_ShouldCallServiceAndReturnOk() throws Exception {
+    void sendEmailEndpointShouldCallServiceAndReturnOk() throws Exception {
         EmailDTO dto = new EmailDTO("Juan", "juan@test.com", "Asunto", "Mensaje de prueba");
 
         mockMvc.perform(post("/send-email")

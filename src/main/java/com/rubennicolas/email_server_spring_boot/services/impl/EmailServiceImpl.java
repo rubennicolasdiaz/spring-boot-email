@@ -21,6 +21,8 @@ public class EmailServiceImpl implements IEmailService {
     private final JavaMailSender javaMailSender;
     private final TemplateEngine templateEngine;
 
+    private static final String MI_EMAIL = "ruben.nicolasdiaz@yahoo.com";
+
     @Override
     public void sendEmail(EmailDTO emailDTO) {
 
@@ -29,8 +31,8 @@ public class EmailServiceImpl implements IEmailService {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
 
-            helper.setFrom(emailDTO.getEmail());
-            helper.setTo(emailDTO.getEmail());
+            helper.setFrom(MI_EMAIL);
+            helper.setTo(MI_EMAIL);
 
             helper.setSubject(emailDTO.getSubject());
 

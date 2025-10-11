@@ -3,14 +3,12 @@ package com.rubennicolas.email_server_spring_boot.UnitTest.services;
 import com.rubennicolas.email_server_spring_boot.services.impl.EmailServiceImpl;
 import com.rubennicolas.email_server_spring_boot.services.models.EmailDTO;
 import jakarta.mail.internet.MimeMessage;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.util.ReflectionTestUtils;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
@@ -29,22 +27,17 @@ class EmailServiceImplTest {
     @InjectMocks
     private EmailServiceImpl emailService;
 
-    @BeforeEach
-    void setUpEmail() {
-        ReflectionTestUtils.setField(emailService, "email", "${username}");
-    }
-
     @Test
-    void sendEmail_ShouldCallMailSenderAndTemplateEngine() {
+    void sendEmailShouldCallMailSenderAndTemplateEngine() {
         // given
-        EmailDTO dto = new EmailDTO("Juan", "juan@test.com", "Prueba", "Mensaje de prueba");
+        EmailDTO emailDTO = new EmailDTO("Juan", "juan@test.com", "Prueba", "Mensaje de prueba");
         MimeMessage mimeMessage = mock(MimeMessage.class);
 
         when(mailSender.createMimeMessage()).thenReturn(mimeMessage);
         when(templateEngine.process(eq("principal"), any(Context.class))).thenReturn("<html>Contenido</html>");
 
         // when
-        emailService.sendEmail(dto);
+        emailService.sendEmail(emailDTO);
 
         // then
         verify(templateEngine, times(1)).process(eq("principal"), any(Context.class));

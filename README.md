@@ -1,6 +1,5 @@
 # 🚀 Spring Boot Email
-
-[![Build Status](https://img.shields.io/github/actions/workflow/status/rubennicolasdiaz/spring-boot-email/build.yml?branch=main&logo=githubactions&logoColor=white)](https://github.com/rubennicolasdiaz/spring-boot-email/actions/build.yml)
+[![Build Status](https://github.com/rubennicolasdiaz/spring-boot-email/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/rubennicolasdiaz/spring-boot-email/actions/workflows/build.yml)
 [![Tests](https://img.shields.io/github/actions/workflow/status/rubennicolasdiaz/spring-boot-email/tests.yml?label=tests&logo=pytest&logoColor=white)](https://github.com/rubennicolasdiaz/spring-boot-email/actions)
 ![Coverage](https://img.shields.io/codecov/c/github/rubennicolasdiaz/spring-boot-email?logo=codecov&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-21-blue?logo=openjdk)

@@ -30,6 +30,7 @@ class EmailServiceImplIT {
 
     @TestConfiguration
     static class GreenMailConfig {
+
         @Bean
         public JavaMailSender javaMailSender() {
             JavaMailSenderImpl sender = new JavaMailSenderImpl();
@@ -51,11 +52,11 @@ class EmailServiceImplIT {
     }
 
     @Test
-    void sendEmail_ShouldSendMessageToGreenMail() throws Exception {
-        EmailDTO dto = new EmailDTO("Juan", "juan@test.com", "Asunto", "Mensaje de prueba");
+    void sendEmailShouldSendMessageToGreenMail() throws Exception {
+        EmailDTO emailDTO = new EmailDTO("Fake User", "fakeuser@test.com", "Asunto", "Mensaje de prueba");
 
         // Se envía al GreenMail fake
-        emailService.sendEmail(dto);
+        emailService.sendEmail(emailDTO);
 
         MimeMessage[] receivedMessages = greenMail.getReceivedMessages();
         assertThat(receivedMessages).hasSize(1);

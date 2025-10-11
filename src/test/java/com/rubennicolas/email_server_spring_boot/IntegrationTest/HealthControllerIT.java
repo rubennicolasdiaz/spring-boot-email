@@ -25,10 +25,10 @@ class HealthControllerIT {
     }
 
     @Test
-    void corsHeaders_ShouldBePresent() throws Exception {
+    void corsHeadersShouldBePresent() throws Exception {
         mockMvc.perform(get("/health")
-                        .header("Origin", "https://rubennicolasdiaz.github.io"))
-                .andExpect(header().string("Access-Control-Allow-Origin", "https://rubennicolasdiaz.github.io"));
+                        .header("Origin", "https://www.rubennicolasdiaz.me"))
+                .andExpect(header().string("Access-Control-Allow-Origin", "https://www.rubennicolasdiaz.me"));
     }
 }
 

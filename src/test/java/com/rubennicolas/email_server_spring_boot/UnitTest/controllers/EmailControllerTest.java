@@ -27,7 +27,7 @@ class EmailControllerTest {
     @Test
     void sendEmail_ShouldReturnOkResponse() {
         // given
-        EmailDTO dto = new EmailDTO("from@test.com", "to@test.com", "asunto", "mensaje");
+        EmailDTO dto = new EmailDTO("name", "name@test.com", "asunto", "mensaje");
 
         // when
         ResponseEntity<String> response = emailController.sendEmail(dto);

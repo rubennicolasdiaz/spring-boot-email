@@ -31,7 +31,7 @@ class EmailServiceImplTest {
 
     @BeforeEach
     void setUpEmail() {
-        ReflectionTestUtils.setField(emailService, "email", "${email.username}");
+        ReflectionTestUtils.setField(emailService, "email", "${username}");
     }
 
     @Test

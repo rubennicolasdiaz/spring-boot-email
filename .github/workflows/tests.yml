@@ -1,4 +1,4 @@
-name: Run Tests & Coverage
+name: Run Tests
 
 on:
   push:

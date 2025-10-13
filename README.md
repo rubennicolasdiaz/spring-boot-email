@@ -22,7 +22,7 @@
 - [⚙️ Automatización (Mantener Activa la App)](#️-automatización-mantener-activa-la-app)
 - [🎥 Vídeo explicativo en YouTube](#-vídeo-explicativo-en-youtube)
 - [🧾 Licencia](#-licencia)
-- [🧑‍💻 Autor](#-autor)
+- [🧑‍💻 Autor](#%E2%80%8D-autor)
 
 ---
 

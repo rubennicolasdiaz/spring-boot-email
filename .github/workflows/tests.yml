@@ -1,4 +1,4 @@
-name: Run Tests
+name: Run Tests & Coverage
 
 on:
   push:
@@ -20,5 +20,20 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Run Maven Tests
-        run: mvn clean test
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m2/repository
+            !~/.m2/repository/org/eluder/coveralls
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build and Run Tests
+        run: mvn clean verify
+
+      - name: Upload Coverage to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        run: mvn coveralls:report

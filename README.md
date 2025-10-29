@@ -1,6 +1,6 @@
 # 🚀 Spring Boot Email
 [![Build Status](https://github.com/rubennicolasdiaz/spring-boot-email/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/rubennicolasdiaz/spring-boot-email/actions/workflows/build.yml)
-[![Tests](https://img.shields.io/github/actions/workflow/status/rubennicolasdiaz/spring-boot-email/tests.yml?label=tests&logo=pytest&logoColor=white)](https://github.com/rubennicolasdiaz/spring-boot-email/actions)
+[![Tests](https://img.shields.io/github/actions/workflow/status/rubennicolasdiaz/spring-boot-email/tests.yml?label=Tests&logo=pytest&logoColor=white)](https://github.com/rubennicolasdiaz/spring-boot-email/actions)
 ![Java](https://img.shields.io/badge/Java-21-blue?logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.5-brightgreen?logo=springboot)
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)

@@ -13,7 +13,7 @@
 
 - [📖 Descripción](#-descripción)
 - [⚙️ Tecnologías y Herramientas](#️-tecnologías-y-herramientas)
-- [📦 Arquitectura del Proyecto](#-arquitectura-del-proyecto)
+- [🏛️ Arquitectura del Proyecto](#-arquitectura-del-proyecto)
 - [🧠 Funcionamiento](#-funcionamiento)
 - [🔐 Seguridad](#-seguridad)
 - [🌍 Configuración de CORS](#-configuración-de-cors)
@@ -44,7 +44,7 @@
 
 ---
 
-## 📦 Arquitectura del Proyecto
+## 🏛️ Arquitectura del Proyecto
 
 ```text
 src/
